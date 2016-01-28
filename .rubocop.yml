@@ -1,0 +1,29 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'tmp/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'
+    - 'web'
+    - 'public'
+
+Rails:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: false
+
+Style/WordArray:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 125
+  AllowURI: true
+  AllowHeredoc: true
+
+inherit_from: .rubocop_todo.yml
