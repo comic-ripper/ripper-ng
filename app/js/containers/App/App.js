@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 // import { ActionCreators as UndoActions } from 'redux-undo';
 import { connect } from 'react-redux';
 
-import AppNav from '../AppNav';
+import AppNav from 'components/AppNav';
 
 class App extends Component {
   render() {

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import App from '../components/App';
+
+import App from 'containers/App';
+
+import DevTools from './DevTools';
 
 /* eslint-disable react/prop-types */
 export default class Root extends Component {
@@ -8,7 +11,10 @@ export default class Root extends Component {
     const { store } = this.props;
     return (
       <Provider store={store}>
-        <App />
+        <div>
+          <App />
+          <DevTools />
+        </div>
       </Provider>
     );
   }
