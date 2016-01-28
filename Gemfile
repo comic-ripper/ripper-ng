@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
-ruby "2.3.0"
+ruby '2.3.0'
 
 gem 'rails', '~> 4.2.5.1'
 gem 'rails-api'
 gem 'rails_12factor', group: :production
 
 gem 'pg'
+gem 'active_model_serializers'
+
+gem 'devise_token_auth'
 
 gem 'puma'
 

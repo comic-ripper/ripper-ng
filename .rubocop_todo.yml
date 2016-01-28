@@ -7,35 +7,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 1
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes.
-# URISchemes: http, https
-Metrics/LineLength:
-  Max: 174
-
-# Offense count: 1
 Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'config/application.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/EmptyLines:
-  Exclude:
-    - 'Gemfile'
-    - 'config/environments/development.rb'
-    - 'config/environments/production.rb'
-
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/TrailingWhitespace:
-  Exclude:
-    - 'config/initializers/secret_token.rb'
