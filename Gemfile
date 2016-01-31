@@ -12,9 +12,6 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'active_model_serializers'
 
-gem 'devise_token_auth'
-gem 'omniauth-github'
-
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
