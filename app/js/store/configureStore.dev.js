@@ -1,26 +1,36 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistState } from 'redux-devtools';
-import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
-import DevTools from 'containers/Root/DevTools';
+import { syncHistory } from 'react-router-redux';
 
-const finalCreateStore = compose(
-  applyMiddleware(thunk),
-  DevTools.instrument(),
-  persistState(
-    window.location.href.match(
-      /[?&]debug_session=([^&]+)\b/
-    )
-  )
-)(createStore);
+import createHistory from 'history/lib/createHashHistory';
+
+import DevTools from 'containers/Root/DevTools';
+import thunk from 'redux-thunk';
+import api from '../middleware/api';
+import createLogger from 'redux-logger';
+import rootReducer from '../reducers';
+
+const history = createHistory();
+const reduxRouterMiddleware = syncHistory(history);
 
 export default function configureStore(initialState) {
-  const store = finalCreateStore(rootReducer, initialState);
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+      applyMiddleware(thunk, api, reduxRouterMiddleware, createLogger()),
+      DevTools.instrument()
+    )
+  );
+
+  // Required for replaying actions from devtools to work
+  reduxRouterMiddleware.listenForReplays(store);
 
   if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers'))
-    );
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers');
+      store.replaceReducer(nextRootReducer);
+    });
   }
 
   return store;

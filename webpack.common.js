@@ -14,6 +14,7 @@ module.exports = {
       template: path.join(__dirname, 'app', 'js', 'templates', 'index.html'),
       hash: true,
     }),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
   ],
   resolve: {
@@ -21,6 +22,7 @@ module.exports = {
     alias: {
       components: 'components',
       containers: 'containers',
+      actions: 'actions',
     },
     extensions: ['', '.js', '.jsx'],
   },

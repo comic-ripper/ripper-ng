@@ -4,8 +4,7 @@ const Config = require('./webpack.common');
 
 Config.devtool = '#cheap-module-eval-source-map';
 Config.entry = [
-  'webpack-dev-server/client?http://localhost:3000',
-  'webpack/hot/only-dev-server',
+  'webpack-hot-middleware/client',
   'bootstrap-loader',
   './app/js/index',
 ];

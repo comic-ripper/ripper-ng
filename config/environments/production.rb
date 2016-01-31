@@ -35,6 +35,11 @@ Rails.application.configure do
   # when problems arise.
   config.log_level = :debug
 
+  # Require basic auth in production
+  config.middleware.use '::Rack::Auth::Basic' do |u, p|
+    [u, p] == [ENV['HTTP_USER'], ENV['HTTP_PASSWORD']]
+  end
+
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
 

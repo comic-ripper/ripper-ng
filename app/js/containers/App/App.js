@@ -5,12 +5,18 @@ import { connect } from 'react-redux';
 
 import AppNav from 'components/AppNav';
 
+import Comics from 'containers/Comics';
+
 class App extends Component {
+  componentWillMount() {
+
+  }
+
   render() {
     return (
       <div>
         <AppNav brand="Ripper" />
-        Ripper
+        <Comics />
       </div>
     );
   }

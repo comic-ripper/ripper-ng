@@ -12,6 +12,11 @@ gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'active_model_serializers'
 
+gem 'sidekiq'
+gem 'sidekiq-unique-jobs'
+gem 'sidekiq-cron'
+gem 'sinatra', require: nil
+
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'

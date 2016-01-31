@@ -1,0 +1,9 @@
+---
+:concurrency: 5
+:queues:
+  - [critical, 30]
+  - [Comic, 15]
+  - [default, 15]
+  - [Chapter, 10]
+  - [Page, 5]
+  - [Build, 1]
