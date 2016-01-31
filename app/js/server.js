@@ -13,10 +13,10 @@ new WebpackDevServer(webpack(config), {
   stats: {
     colors: true,
   },
-}).listen(portToUse, 'localhost', function message(err) {
+}).listen(portToUse, 'localhost', (err) => {
   if (err) {
     console.log(err);
   }
 
-  console.log('Listening at localhost:' + portToUse);
+  console.log(`Listening at localhost: $(portToUse)`);
 });
