@@ -19,4 +19,4 @@ Config.plugins = Config.plugins.concat([
   }),
 ]);
 
-module.export = Config;
+module.exports = Config;

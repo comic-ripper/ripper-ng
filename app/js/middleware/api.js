@@ -3,7 +3,7 @@ import { camelizeKeys } from 'humps';
 import 'isomorphic-fetch';
 
 
-const API_ROOT = 'http://localhost:5000';
+const API_ROOT = 'https://comic-ripper.herokuapp.com';
 
 
 // Fetches an API response and normalizes the result JSON according to schema.

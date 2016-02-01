@@ -16,6 +16,18 @@ module.exports = {
     }),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin(),
+    { // Use Absolute asset paths for JS, should probably make this real and do all assets
+      apply(compiler) {
+        /* eslint-disable */
+        compiler.plugin('compilation', function(compilation) {
+          compilation.plugin('html-webpack-plugin-before-html-processing', function(htmlPluginData, callback) {
+            htmlPluginData.assets.js = htmlPluginData.assets.js.map((js) => "/" + js);
+            callback();
+          });
+        });
+        /* eslint-enable */
+      },
+    },
   ],
   resolve: {
     root: path.join(__dirname, 'app', 'js'),

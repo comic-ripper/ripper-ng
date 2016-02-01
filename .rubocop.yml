@@ -9,8 +9,8 @@ AllCops:
     - 'tmp/**/*'
     - 'vendor/**/*'
     - 'log/**/*'
-    - 'web'
     - 'public'
+    - 'node-modules'
 
 Rails:
   Enabled: true
