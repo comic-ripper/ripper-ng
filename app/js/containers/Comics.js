@@ -9,6 +9,7 @@ class Comics extends React.Component {
   static propTypes = {
     comics: React.PropTypes.object.isRequired,
     loadComics: React.PropTypes.func.isRequired,
+    children: React.PropTypes.element,
   };
 
   componentWillMount() {
@@ -16,6 +17,9 @@ class Comics extends React.Component {
   }
 
   render() {
+    if (this.props.children) {
+      return this.props.children;
+    }
     return <ComicList comics={this.props.comics} />;
   }
 }

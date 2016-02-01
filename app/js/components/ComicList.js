@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Table } from 'react-bootstrap';
 
+import { Link } from 'react-router';
+
 import _ from 'lodash';
 
 class ComicList extends React.Component {
@@ -12,8 +14,7 @@ class ComicList extends React.Component {
   renderComic(comic) {
     return (
       <tr key={comic.id}>
-        <td>{comic.id}</td>
-        <td>{comic.title}</td>
+        <td><Link to={`comics/${comic.id}`} >{comic.title}</Link></td>
       </tr>
     );
   }
@@ -23,7 +24,6 @@ class ComicList extends React.Component {
       <Table>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Title</th>
           </tr>
         </thead>

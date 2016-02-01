@@ -13,3 +13,17 @@ export function loadComics() {
     },
   };
 }
+
+
+export const COMIC_REQUEST = 'COMIC_REQUEST';
+export const COMIC_SUCCESS = 'COMIC_SUCCESS';
+export const COMIC_FAILURE = 'COMIC_FAILURE';
+export function getComic(comicId) {
+  return {
+    [CALL_API]: {
+      types: [COMIC_REQUEST, COMIC_SUCCESS, COMIC_FAILURE],
+      endpoint: `/comics/${comicId}.json`,
+      schema: Schemas.COMIC,
+    },
+  };
+}
