@@ -10,12 +10,9 @@ class ComicInfo extends React.Component {
 
   renderChapter(chapter) {
     return (
-      <tr>
-        <td key={chapter.id}>
-          Ch.{chapter.number} - {chapter.title}
-        </td>
+      <tr key={chapter.id}>
         <td>
-          <Link to={`/read/${chapter.id}`}>Read</Link>
+          <Link to={`/read/${chapter.id}`}>Ch.{chapter.number} - {chapter.title}</Link>
         </td>
       </tr>
     );

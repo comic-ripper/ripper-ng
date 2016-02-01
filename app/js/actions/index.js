@@ -27,3 +27,16 @@ export function getComic(comicId) {
     },
   };
 }
+
+export const CHAPTER_REQUEST = 'CHAPTER_REQUEST';
+export const CHAPTER_SUCCESS = 'CHAPTER_SUCCESS';
+export const CHAPTER_FAILURE = 'CHAPTER_FAILURE';
+export function getChapter(chapterId) {
+  return {
+    [CALL_API]: {
+      types: [CHAPTER_REQUEST, CHAPTER_SUCCESS, CHAPTER_FAILURE],
+      endpoint: `/chapters/${chapterId}.json`,
+      schema: Schemas.CHAPTER,
+    },
+  };
+}

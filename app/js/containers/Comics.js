@@ -20,7 +20,10 @@ class Comics extends React.Component {
     if (this.props.children) {
       return this.props.children;
     }
-    return <ComicList comics={this.props.comics} />;
+    if (this.props.comics) {
+      return <ComicList comics={this.props.comics} />;
+    }
+    return (<h3>Loading...</h3>);
   }
 }
 

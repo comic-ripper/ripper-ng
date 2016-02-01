@@ -2,8 +2,9 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 import App from './containers/App';
 
-import Comic from './containers/Comic';
-import Comics from './containers/Comics';
+import Comic from 'containers/Comic';
+import Comics from 'containers/Comics';
+import Chapter from 'containers/Chapter';
 
 export default (
   <Route path="/" component={App}>
@@ -11,5 +12,6 @@ export default (
     <Route path="comics" component={Comics}>
       <Route path="/comics/:comicId" component={Comic} />
     </Route>
+    <Route path="read/:chapterId" component={Chapter} />
   </Route>
 );

@@ -1,21 +1,22 @@
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
+const WebpackDevServer = require('webpack-dev-server');
 const config = require('../../webpack.config');
 
-/* eslint-disable no-console,func-names,prefer-template,prefer-arrow-callback */
+/* eslint-disable no-console, prefer-arrow-callback */
 
-const app = new (require('express'))();
-const port = 3000;
+const portToUse = 3000;
 
-const compiler = webpack(config);
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
-app.use(webpackHotMiddleware(compiler));
-
-app.listen(port, function (error) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.info('==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.', port, port);
+new WebpackDevServer(webpack(config), {
+  publicPath: config.output.publicPath,
+  hot: true,
+  historyApiFallback: true,
+  stats: {
+    colors: true,
+  },
+}).listen(portToUse, 'localhost', function message(err) {
+  if (err) {
+    console.log(err);
   }
+
+  console.log(`Listening at localhost:${portToUse}`);
 });
