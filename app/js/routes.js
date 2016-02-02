@@ -10,8 +10,9 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute component={Comics} />
     <Route path="comics" component={Comics}>
-      <Route path="/comics/:comicId" component={Comic} />
+      <Route path="/comics/:comicId" component={Comic}>
+        <Route path=":chapterId" component={Chapter} />
+      </Route>
     </Route>
-    <Route path="read/:chapterId" component={Chapter} />
   </Route>
 );

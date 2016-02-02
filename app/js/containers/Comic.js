@@ -13,6 +13,7 @@ class Comic extends React.Component {
     comic: React.PropTypes.object,
     chapters: React.PropTypes.arrayOf(React.PropTypes.object),
     getComic: React.PropTypes.func.isRequired,
+    children: React.PropTypes.element,
   };
 
   componentWillMount() {
@@ -20,6 +21,9 @@ class Comic extends React.Component {
   }
 
   render() {
+    if (this.props.children) {
+      return this.props.children;
+    }
     if (this.props.comic) {
       return <ComicInfo comic={this.props.comic} chapters={this.props.chapters} />;
     }

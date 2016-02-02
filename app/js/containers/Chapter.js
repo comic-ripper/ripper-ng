@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { getChapter } from 'actions';
 
-import ChapterReader from 'components/ChapterReader';
+import PageReader from 'components/PageReader';
 
 class Chapter extends React.Component {
   static propTypes = {
@@ -21,13 +21,14 @@ class Chapter extends React.Component {
 
   render() {
     if (this.props.chapter && this.props.chapter.pages) {
-      return <ChapterReader chapter={this.props.chapter} pages={this.props.pages} />;
+      return <PageReader {...this.props} />;
     }
     return (<i>Loading...</i>);
   }
 }
 
 function mapStateToProps(state, props) {
+  const comic = state.entities.comics[props.params.comicId];
   const chapter = state.entities.chapters[props.params.chapterId];
   let pages = null;
   if (chapter && chapter.pages) {
@@ -37,6 +38,7 @@ function mapStateToProps(state, props) {
   }
 
   return {
+    comic,
     chapter,
     pages,
   };

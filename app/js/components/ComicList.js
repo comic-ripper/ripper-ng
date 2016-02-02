@@ -14,7 +14,7 @@ class ComicList extends React.Component {
   renderComic(comic) {
     return (
       <tr key={comic.id}>
-        <td><Link to={`comics/${comic.id}`} >{comic.title}</Link></td>
+        <td><Link to={`/comics/${comic.id}`} >{comic.title}</Link></td>
       </tr>
     );
   }
