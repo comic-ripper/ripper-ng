@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Table } from 'react-bootstrap';
 
+import _ from 'lodash';
 // import { Link } from 'react-router';
 
 class ChapterReader extends React.Component {
@@ -13,14 +14,13 @@ class ChapterReader extends React.Component {
   renderPage(page) {
     return (
       <tr key={page.id}>
-        <td>{page.number}</td>
+        <td>{page.number} - {page.image.url}</td>
       </tr>
     );
   }
 
   render() {
-    const pages = this.props.pages;
-    debugger;
+    const pages = _.sortBy(this.props.pages, (p) => p.number);
     return (
       <Table>
         <thead>

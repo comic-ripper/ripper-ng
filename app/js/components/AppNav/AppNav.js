@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
+
+import { IndexLinkContainer } from 'react-router-bootstrap';
 
 class AppNav extends React.Component {
   static propTypes = {
@@ -15,6 +17,13 @@ class AppNav extends React.Component {
             {this.props.brand}
           </Navbar.Brand>
         </Navbar.Header>
+        <Navbar.Collapse>
+          <Nav>
+            <IndexLinkContainer to="/">
+              <NavItem>Comic List</NavItem>
+            </IndexLinkContainer>
+          </Nav>
+        </Navbar.Collapse>
       </Navbar>
     );
   }
